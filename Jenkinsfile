@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Setup Environment') {
             steps {
-                // Use Bash for this stage
+                // Use Bash for the entire stage
                 sh '''
                     #!/bin/bash
                     python3 -m venv venv
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                // Use Bash for this stage
+                // Use Bash for the entire stage
                 sh '''
                     #!/bin/bash
                     source venv/bin/activate
@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                // Use Bash for this stage
+                // Use Bash for the entire stage
                 sh '''
                     #!/bin/bash
                     source venv/bin/activate
