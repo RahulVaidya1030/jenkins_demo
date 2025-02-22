@@ -9,21 +9,33 @@ pipeline {
         }
         stage('Setup Environment') {
             steps {
-                sh 'python3 -m venv venv'
-                sh 'source venv/bin/activate'
-                sh 'pip install -r requirements.txt'
+                // Use Bash for this stage
+                sh '''
+                    #!/bin/bash
+                    python3 -m venv venv
+                    source venv/bin/activate
+                    pip install -r requirements.txt
+                '''
             }
         }
         stage('Build') {
             steps {
-                sh 'source venv/bin/activate'
-                sh 'python src/main.py'
+                // Use Bash for this stage
+                sh '''
+                    #!/bin/bash
+                    source venv/bin/activate
+                    python src/main.py
+                '''
             }
         }
         stage('Test') {
             steps {
-                sh 'source venv/bin/activate'
-                sh 'pytest src/test_main.py'
+                // Use Bash for this stage
+                sh '''
+                    #!/bin/bash
+                    source venv/bin/activate
+                    pytest src/test_main.py
+                '''
             }
         }
     }
