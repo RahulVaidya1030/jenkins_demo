@@ -13,7 +13,7 @@ pipeline {
                 sh '''
                     #!/bin/bash
                     python3 -m venv venv
-                    source venv/bin/activate
+                    . venv/bin/activate
                     pip install -r requirements.txt
                 '''
             }
@@ -23,7 +23,7 @@ pipeline {
                 // Use Bash for the entire stage
                 sh '''
                     #!/bin/bash
-                    source venv/bin/activate
+                    . venv/bin/activate
                     python src/main.py
                 '''
             }
@@ -33,7 +33,7 @@ pipeline {
                 // Use Bash for the entire stage
                 sh '''
                     #!/bin/bash
-                    source venv/bin/activate
+                    . venv/bin/activate
                     pytest src/test_main.py
                 '''
             }
